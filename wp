@@ -1,0 +1,26 @@
+#! /bin/bash/
+date=$(date +%s) 
+wget https://wordpress.org/latest.tar.gz 
+mv web "web.$date"
+mkdir web 
+wait
+tar -xvzf latest.tar.gz
+mv wordpress/* web
+cat web/wp-config-sample.php > web/wp-config.php
+rm -r latest.tar.gz
+rm -r wordpress
+sed -i -e "s/localhost/$1/g" web/wp-config.php
+sed -i -e "s/database_name_here/$2/g" web/wp-config.php
+sed -i -e "s/username_here/$3/g" web/wp-config.php
+sed -i -e "s/password_here/$4/g" web/wp-config.php
+
+rm -r wp
+
+
+
+
+
+
+
+
+echo "asdadadas $1"
