@@ -1,0 +1,12 @@
+#! /bin/bash
+
+
+
+
+nvim temp
+myarr=($(awk -F  ":" '{ print $2 }' temp))
+openssl genrsa -out example.key 2048
+openssl req -new -key example.key -out example.csr -subj "/C=${myarr[0]}/ST=${myarr[1]}/L=${myarr[2]}/O=${myarr[3]}/OU=${myarr[4]}/CN=${myarr[5]}/emailAddress=${myarr[6]}"
+cat temp example.*
+cat temp example.* >> /home/lkzmkz/hwscripts/hwscripts/csreq/csr.log
+rm temp example.*
