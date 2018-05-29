@@ -1,0 +1,5 @@
+#! /bin/bash
+
+
+python3 /home/lkzmkz/hwscripts/hwscripts/who/who.py $1
+python3 /home/lkzmkz/hwscripts/hwscripts/who/who.py $1 >> /home/lkzmkz/hwscripts/hwscripts/who/who.log
